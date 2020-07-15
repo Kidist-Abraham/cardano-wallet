@@ -8,6 +8,9 @@ name: cardano-wallet Windows Tests
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches:
+    - 'rvl/windows-tests-shelley'
 
 jobs:
   tests:
