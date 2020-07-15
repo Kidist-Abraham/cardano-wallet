@@ -20,7 +20,7 @@ jobs:
       - name: Fetch Windows testing bundle
         shell: powershell
         run: |
-          $url = "https://hydra.iohk.io/job/Cardano/cardano-wallet/cardano-wallet-tests-win64/latest/download/1"
+          $url = "https://hydra.iohk.io/job/Cardano/cardano-wallet-pr-1912/cardano-wallet-tests-win64/latest/download/1"
           $output = "cardano-wallet-tests-win64.zip"
           Invoke-WebRequest -Uri $url -OutFile $output
           Expand-Archive -LiteralPath $output -DestinationPath .
