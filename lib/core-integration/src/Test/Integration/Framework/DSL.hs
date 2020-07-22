@@ -105,6 +105,7 @@ module Test.Integration.Framework.DSL
     , rootPrvKeyFromMnemonics
     , unsafeGetTransactionTime
     , getTxId
+    , minUTxOValue
 
     -- * Delegation helpers
     , mkEpochInfo
@@ -513,6 +514,9 @@ walletId =
 --
 -- Helpers
 --
+minUTxOValue :: Natural
+minUTxOValue = 1_000_000
+
 getTxId :: (ApiTransaction n) -> String
 getTxId tx = T.unpack $ toUrlPiece $ ApiTxId (tx ^. #id)
 
