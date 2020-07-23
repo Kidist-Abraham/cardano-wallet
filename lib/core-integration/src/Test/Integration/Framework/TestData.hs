@@ -75,6 +75,7 @@ module Test.Integration.Framework.TestData
     , errMsgNotInDictionary
     , errMsg403RejectedTip
     , errMsg400MinWithdrawalWrong
+    , errMsg404MinUTxOValue
     ) where
 
 import Prelude
@@ -248,6 +249,15 @@ versionLine = "Running as v" <> pack (showFullVersion version gitRevision)
 ---
 --- Error messages
 ---
+
+errMsg404MinUTxOValue :: Natural -> String
+errMsg404MinUTxOValue minUTxOValue = mconcat
+    [ "I'm unable to construct the given transaction as some outputs or changes"
+    , " are too small! Each output and change is expected to be >= "
+    , (show minUTxOValue)
+    , " Lovelace. In the current transaction the following pieces are not"
+    , " satisfying this condition"
+    ]
 
 errMsg409WalletExists :: String -> String
 errMsg409WalletExists walId = "This operation would yield a wallet with the following\
